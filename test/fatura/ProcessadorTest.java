@@ -12,7 +12,6 @@ import java.util.Date;
 import java.util.List;
 
 public class ProcessadorTest {
-    Processador processador;
     Fatura fatura;
     List<Boleto> boletoListFull;
     List<Boleto> boletoListIncomplete;
@@ -37,20 +36,20 @@ public class ProcessadorTest {
 
     @DisplayName("Testa a criação de pagamentos")
     public void TestCreatePayment(){
-        processador.createPayment(boletoListFull, fatura);
+        Processador.createPayment(boletoListFull, fatura);
         Assertions.assertFalse(fatura.getPagamentos().isEmpty());
     }
 
     @DisplayName("Testa se a soma dos valores dos boletos alcançou o valor da fatura, caso sim")
     public void TestCheckAmountTrue(){
-        processador.createPayment(boletoListFull, fatura);
-        Assertions.assertTrue(processador.checkPaymentAmount(fatura));
+        Processador.createPayment(boletoListFull, fatura);
+        Assertions.assertTrue(Processador.checkPaymentAmount(fatura));
     }
 
     @DisplayName("Testa se a soma dos valores dos boletos alcançou o valor da fatura, caso não")
     public void TestCheckAmountFalse(){
-        processador.createPayment(boletoListIncomplete, fatura);
-        Assertions.assertFalse(processador.checkPaymentAmount(fatura));
+        Processador.createPayment(boletoListIncomplete, fatura);
+        Assertions.assertFalse(Processador.checkPaymentAmount(fatura));
     }
 
 }
