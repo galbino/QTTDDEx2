@@ -18,7 +18,6 @@ public class ProcessadorTest {
 
     @BeforeEach
     public void startUp(){
-        processador = new Processador();
         fatura = new Fatura(new Date(), 100.00, "Gustavo");
         Boleto boleto = new Boleto("1", new Date(), 20.0);
         Boleto boletoTwo = new Boleto("2", new Date(), 70.0);
