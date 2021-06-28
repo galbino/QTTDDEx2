@@ -3,6 +3,7 @@ package fatura;
 import com.uff.Processador;
 import com.uff.boleto.Boleto;
 import com.uff.fatura.Fatura;
+import com.uff.fatura.FaturaStatus;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -49,6 +50,18 @@ public class ProcessadorTest {
     public void TestCheckAmountFalse(){
         Processador.createPayment(boletoListIncomplete, fatura);
         Assertions.assertFalse(Processador.checkPaymentAmount(fatura));
+    }
+
+    @DisplayName("Testa se o status da fatura permanece como não paga caso não tenha alcançado o valor")
+    public void TestCheckFaturaNotPaid(){
+        Processador.createPayment(boletoListIncomplete, fatura);
+        Assertions.assertEquals(fatura.getFaturaStatus(), FaturaStatus.NAO_PAGA);
+    }
+
+    @DisplayName("Testa se o status da fatura muda para paga caso tenha alcançado o valor")
+    public void TestCheckFaturaPaid(){
+        Processador.createPayment(boletoListFull, fatura);
+        Assertions.assertEquals(fatura.getFaturaStatus(), FaturaStatus.PAGA);
     }
 
 }

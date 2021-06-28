@@ -9,12 +9,22 @@ public class Fatura {
     private Date data;
     private Double valorTotal;
     private String nomeDoCliente;
+    private FaturaStatus faturaStatus;
     private List<Pagamento> pagamentos;
 
     public Fatura(Date data, Double valorTotal, String nomeDoCliente) {
         this.data = data;
         this.valorTotal = valorTotal;
         this.nomeDoCliente = nomeDoCliente;
+        this.faturaStatus = FaturaStatus.NAO_PAGA;
+    }
+
+    public FaturaStatus getFaturaStatus() {
+        return faturaStatus;
+    }
+
+    public void setFaturaStatus(FaturaStatus faturaStatus) {
+        this.faturaStatus = faturaStatus;
     }
 
     public Date getData() {
