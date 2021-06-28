@@ -5,10 +5,15 @@ import com.uff.boleto.Boleto;
 import java.util.Date;
 
 public class Pagamento {
-    private Boleto boleto;
-    private Float valorPago;
+    private Double valorPago;
     private Date data;
     private TipoPagamento tipoPagamento;
+
+    public Pagamento(Double valorPago, Date data, TipoPagamento tipo) {
+        this.valorPago = valorPago;
+        this.data = data;
+        this.tipoPagamento = tipo;
+    }
 
     public Boleto getBoleto() {
         return boleto;
@@ -18,11 +23,11 @@ public class Pagamento {
         this.boleto = boleto;
     }
 
-    public Float getValorPago() {
+    public Double getValorPago() {
         return valorPago;
     }
 
-    public void setValorPago(Float valorPago) {
+    public void setValorPago(Double valorPago) {
         this.valorPago = valorPago;
     }
 

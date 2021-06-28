@@ -1,11 +1,21 @@
 package com.uff.fatura;
 
+import com.uff.pagamento.Pagamento;
+
 import java.util.Date;
+import java.util.List;
 
 public class Fatura {
     private Date data;
-    private Float valorTotal;
+    private Double valorTotal;
     private String nomeDoCliente;
+    private List<Pagamento> pagamentos;
+
+    public Fatura(Date data, Double valorTotal, String nomeDoCliente) {
+        this.data = data;
+        this.valorTotal = valorTotal;
+        this.nomeDoCliente = nomeDoCliente;
+    }
 
     public Date getData() {
         return data;
@@ -15,11 +25,11 @@ public class Fatura {
         this.data = data;
     }
 
-    public Float getValorTotal() {
+    public Double getValorTotal() {
         return valorTotal;
     }
 
-    public void setValorTotal(Float valorTotal) {
+    public void setValorTotal(Double valorTotal) {
         this.valorTotal = valorTotal;
     }
 
@@ -29,5 +39,16 @@ public class Fatura {
 
     public void setNomeDoCliente(String nomeDoCliente) {
         this.nomeDoCliente = nomeDoCliente;
+    }
+
+    public List<Pagamento> getPagamentos() {
+        return pagamentos;
+    }
+
+    public void setPagamentos(List<Pagamento> pagamentos) {
+        this.pagamentos = pagamentos;
+    }
+    public void addPagamentoToList(Pagamento pagamento) {
+        this.pagamentos.add(pagamento);
     }
 }
