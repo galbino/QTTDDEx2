@@ -2,6 +2,7 @@ package com.uff;
 
 import com.uff.boleto.Boleto;
 import com.uff.fatura.Fatura;
+import com.uff.fatura.FaturaStatus;
 import com.uff.pagamento.Pagamento;
 import com.uff.pagamento.TipoPagamento;
 
@@ -21,6 +22,7 @@ public class Processador {
             amount += pag.getValorPago();
         }
         if (amount >= fatura.getValorTotal()){
+            fatura.setFaturaStatus(FaturaStatus.PAGA);
             return true;
         }
         return false;

@@ -15,14 +15,6 @@ public class Pagamento {
         this.tipoPagamento = tipo;
     }
 
-    public Boleto getBoleto() {
-        return boleto;
-    }
-
-    public void setBoleto(Boleto boleto) {
-        this.boleto = boleto;
-    }
-
     public Double getValorPago() {
         return valorPago;
     }
